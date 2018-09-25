@@ -10,7 +10,7 @@ const Header = styled.div`
 
 const HomeButton = styled.a`
     margin-right: auto;
-    background-color: lightblue;
+    background-color: red;
     color: black;
     text-decoration: none;
 `
