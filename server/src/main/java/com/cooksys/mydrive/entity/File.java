@@ -21,6 +21,9 @@ public class File {
     private byte[] rawData;
 
     @NotNull
+    private boolean isRoot;
+
+    @NotNull
     private boolean inTrash;
 
     public File() {

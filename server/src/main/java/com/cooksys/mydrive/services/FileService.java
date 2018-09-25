@@ -12,8 +12,8 @@ public class FileService {
         this.fileRepository = fileRepository;
     }
 
-    public File get() {
-        return new File();
+    public File[] get() {
+        return fileRepository.findByIsRoot(true);
     }
 
     public File get(String path) {
