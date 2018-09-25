@@ -1,7 +1,10 @@
 package com.cooksys.mydrive.repository;
 
+import com.cooksys.mydrive.entity.File;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class FileRepository {
+public interface FileRepository  extends JpaRepository<File, Integer> {
+
 }
