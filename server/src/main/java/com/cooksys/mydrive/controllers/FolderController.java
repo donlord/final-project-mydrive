@@ -1,6 +1,7 @@
 package com.cooksys.mydrive.controllers;
 
 import com.cooksys.mydrive.entity.Folder;
+import com.cooksys.mydrive.services.FolderService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,22 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/folders")
 
 public class FolderController {
-//    private FolderService folderService;
-//
-//    public FolderController(FolderService folderService) {
-//        this.folderService = folderService;
-//    }
+    private FolderService folderService;
 
-    public FolderController() {
+    public FolderController(FolderService folderService) {
+        this.folderService = folderService;
     }
 
     @GetMapping
-    public Folder get() {
-        return new Folder();
+    public Folder[] get() {
+        return folderService.get();
     }
 
-    @GetMapping("/@{path}")
-    public String get(@PathVariable(value = "folderPath") String path) {
+    @GetMapping("{path}")
+    public String get(@PathVariable(value = "path") String path) {
         return path;
     }
 
