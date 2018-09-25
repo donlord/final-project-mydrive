@@ -8,6 +8,7 @@ import configureStore from './configureStore'
 import App from './containers/App'
 
 import 'normalize.css'
+import './global.css'
 
 const initialState = {}
 const history = createHistory()
