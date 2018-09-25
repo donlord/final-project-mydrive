@@ -6,10 +6,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FileService {
-    FileRepository fileRepository;
+    private FileRepository fileRepository;
 
     public FileService(FileRepository fileRepository) {
         this.fileRepository = fileRepository;
+    }
+
+    public File get() {
+        return new File();
     }
 
     public File get(String path) {
