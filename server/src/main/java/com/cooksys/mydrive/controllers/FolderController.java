@@ -16,6 +16,9 @@ public class FolderController {
 //        this.folderService = folderService;
 //    }
 
+    public FolderController() {
+    }
+
     @GetMapping
     public Folder get() {
         return new Folder();
