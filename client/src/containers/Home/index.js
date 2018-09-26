@@ -95,6 +95,17 @@ const RowIcons = styled.div`
 `
 
 class Home extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      uploadClicked: false
+    }
+  }
+  handleUploadClick = event => {
+    this.setState({
+      uploadClicked: !this.state.uploadClicked
+    })
+  }
   render () {
     return (
       <div>
@@ -115,10 +126,12 @@ class Home extends React.Component {
         <RightContent>
           <PathContentBar>
             <Path>MyDrive/</Path>
-            <UploadTable/>
+            {this.state.uploadClicked && <UploadTable />}
             <ButtonGroup>
               <CreateButton>Create</CreateButton>
-              <UploadButton>Upload</UploadButton>
+              <UploadButton onClick={this.handleUploadClick}>
+                Upload
+              </UploadButton>
             </ButtonGroup>
           </PathContentBar>
           <Row style={{ backgroundColor: 'lightgrey' }}>
@@ -169,8 +182,16 @@ class Home extends React.Component {
 
 Home.propTypes = {}
 
-const mapStateToProps = state => {}
+const mapStateToProps = state => ({
+  selected: state.drive.selected,
+  path: state.drive.path,
+  children: [],
+  loadingChildren: state.drive.path.loadingChildren,
+  loadingChildrenError: state.drive.loadingChildrenError
+})
 
-const mapDispatchToProps = state => {}
+const mapDispatchToProps = state => ({
+  loadChildren: path => dispatch(loadChildren(path))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
