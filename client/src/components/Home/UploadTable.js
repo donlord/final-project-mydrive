@@ -1,3 +1,6 @@
+import React from 'react'
+import styled from 'styled-components'
+
 const UploadTableStyle = styled.div`
  position: absolute;
  top: 20%;
@@ -13,7 +16,7 @@ class UploadTable extends React.Component {
     return (
       <form
         method='POST'
-        enctype='multipart/form-data'
+        encType='multipart/form-data'
         action='/files/example'
       >
         <UploadTableStyle>
@@ -23,7 +26,7 @@ class UploadTable extends React.Component {
             </tr>
             <tr><td /><td><input type='submit' value='Upload' /></td></tr>
           </table>
-        </UploadTableStyle>        
+        </UploadTableStyle>     
       </form>
     )
   }
