@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import UploadTable from '../../components/Home/UploadTable.js'
 
+import FileRow from '../../components/Home/FileRow.js'
+
 const Header = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -150,30 +152,12 @@ class Home extends React.Component {
               />
             </RowIcons>
           </Row>
-          <Row>
-            <i className='far fa-folder fa-3x' />
-            <p>Yellow Kitty/</p>
-          </Row>
-          <Row style={{ backgroundColor: 'lightgrey' }}>
-            <i className='far fa-folder fa-3x' />
-            <p>Yellow Kitty/</p>
-          </Row>
-          <Row>
-            <i className='far fa-file fa-3x' />
-            <p>Yellow Kitty.png</p>
-          </Row>
-          <Row style={{ backgroundColor: 'lightgrey' }}>
-            <i className='far fa-file fa-3x' />
-            <p>Yellow Kitty.jpg</p>
-          </Row>
-          <Row>
-            <i className='far fa-file fa-3x' />
-            <p>Yellow Kitty.jpeg</p>
-          </Row>
-          <Row style={{ backgroundColor: 'lightgrey' }}>
-            <i className='far fa-file-archive fa-3x' />
-            <p>Yellow Kitty.zip</p>
-          </Row>
+          <FileRow background='white' fileImage='far fa-folder fa-3x' fileName='Yellow Kitty/' />
+          <FileRow background='lightgrey' fileImage='far fa-folder fa-3x' fileName='Yellow Kitty/' />
+          <FileRow background='white' fileImage='far fa-file fa-3x' fileName='Yellow Kitty.png' />
+          <FileRow background='lightgrey' fileImage='far fa-file fa-3x' fileName='Yellow Kitty.jpg' />
+          <FileRow background='white' fileImage='far fa-file fa-3x' fileName='Yellow Kitty.jpeg' />
+          <FileRow background='lightgrey' fileImage='far fa-file-archive fa-3x' fileName='Yellow Kitty.zip' />
         </RightContent>
       </div>
     )
