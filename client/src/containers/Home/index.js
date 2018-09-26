@@ -2,6 +2,8 @@ import React from 'react'
 import connect from 'react-redux/es/connect/connect' // TODO: whats going on here
 import styled from 'styled-components'
 
+import UploadTable from '../../components/Home/UploadTable.js'
+
 const Header = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -58,6 +60,10 @@ const CreateButton = styled.a`
 `
 const UploadButton = styled.a`
   margin-left: 20px;
+
+  &:hover {
+    color: grey;
+  }
 `
 
 const LeftContent = styled.div`
@@ -109,6 +115,7 @@ class Home extends React.Component {
         <RightContent>
           <PathContentBar>
             <Path>MyDrive/</Path>
+            <UploadTable/>
             <ButtonGroup>
               <CreateButton>Create</CreateButton>
               <UploadButton>Upload</UploadButton>
@@ -155,18 +162,6 @@ class Home extends React.Component {
             <p>Yellow Kitty.zip</p>
           </Row>
         </RightContent>
-        <form
-          method='POST'
-          enctype='multipart/form-data'
-          action='/files/example'
-        >
-          <table>
-            <tr>
-              <td>File to upload:</td><td><input type='file' name='file' /></td>
-            </tr>
-            <tr><td /><td><input type='submit' value='Upload' /></td></tr>
-          </table>
-        </form>
       </div>
     )
   }

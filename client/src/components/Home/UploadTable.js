@@ -11,6 +11,13 @@ const UploadTableStyle = styled.div`
  border: 1px solid black;
 `
 
+const UploadedFile = styled.td`
+  max-width: 500px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+`
+
 class UploadTable extends React.Component {
   render () {
     return (
@@ -22,7 +29,7 @@ class UploadTable extends React.Component {
         <UploadTableStyle>
           <table>
             <tr>
-              <td>File to upload:</td><td><input type='file' name='file' /></td>
+              <td>File to upload:</td><UploadedFile><input type='file' name='file' /></UploadedFile>
             </tr>
             <tr><td /><td><input type='submit' value='Upload' /></td></tr>
           </table>
