@@ -96,6 +96,10 @@ const RowIcons = styled.div`
  align-items: center;
 `
 
+const FOLDER = 'far fa-folder fa-3x'
+const FILE = 'far fa-file fa-3x'
+const ARCHIVE = 'far fa-file-archive fa-3x'
+
 class Home extends React.Component {
   constructor (props) {
     super(props)
@@ -138,7 +142,7 @@ class Home extends React.Component {
           </PathContentBar>
           <Row style={{ backgroundColor: 'lightgrey' }}>
             <RowContent>
-              <i className='far fa-folder fa-3x' />
+              <i className={FOLDER} />
               <p>Yellow Kitty/kittyOne</p>
             </RowContent>
             <RowIcons>
@@ -152,12 +156,12 @@ class Home extends React.Component {
               />
             </RowIcons>
           </Row>
-          <FileRow background='white' fileImage='far fa-folder fa-3x' fileName='Yellow Kitty/' />
-          <FileRow background='lightgrey' fileImage='far fa-folder fa-3x' fileName='Yellow Kitty/' />
-          <FileRow background='white' fileImage='far fa-file fa-3x' fileName='Yellow Kitty.png' />
-          <FileRow background='lightgrey' fileImage='far fa-file fa-3x' fileName='Yellow Kitty.jpg' />
-          <FileRow background='white' fileImage='far fa-file fa-3x' fileName='Yellow Kitty.jpeg' />
-          <FileRow background='lightgrey' fileImage='far fa-file-archive fa-3x' fileName='Yellow Kitty.zip' />
+          <FileRow background='white' fileImage={FOLDER} fileName='Yellow Kitty/' />
+          <FileRow background='lightgrey' fileImage={FOLDER} fileName='Yellow Kitty/' />
+          <FileRow background='white' fileImage={FILE} fileName='Yellow Kitty.png' />
+          <FileRow background='lightgrey' fileImage={FILE} fileName='Yellow Kitty.jpg' />
+          <FileRow background='white' fileImage={FILE} fileName='Yellow Kitty.jpeg' />
+          <FileRow background='lightgrey' fileImage={ARCHIVE} fileName='Yellow Kitty.zip' />
         </RightContent>
       </div>
     )
