@@ -23,7 +23,7 @@ const UserButton = styled.a`
 const Sidebar = styled.div`
   font-size: 32pt;
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 500px; /* Set the width of the sidebar */
+  width: 20%; /* Set the width of the sidebar */
   padding-top: 20px;
   margin:auto;
   float: left;
@@ -116,7 +116,7 @@ class Home extends React.Component {
           </PathContentBar>
           <Row style={{ backgroundColor: 'lightgrey' }}>
             <RowContent>
-              <i className='fas fa-folder fa-3x' />
+              <i className='far fa-folder fa-3x' />
               <p>Yellow Kitty/kittyOne</p>
             </RowContent>
             <RowIcons>
@@ -131,11 +131,11 @@ class Home extends React.Component {
             </RowIcons>
           </Row>
           <Row>
-            <i className='fas fa-folder fa-3x' />
+            <i className='far fa-folder fa-3x' />
             <p>Yellow Kitty/</p>
           </Row>
           <Row style={{ backgroundColor: 'lightgrey' }}>
-            <i className='fas fa-folder fa-3x' />
+            <i className='far fa-folder fa-3x' />
             <p>Yellow Kitty/</p>
           </Row>
           <Row>
@@ -155,6 +155,18 @@ class Home extends React.Component {
             <p>Yellow Kitty.zip</p>
           </Row>
         </RightContent>
+        <form
+          method='POST'
+          enctype='multipart/form-data'
+          action='/files/example'
+        >
+          <table>
+            <tr>
+              <td>File to upload:</td><td><input type='file' name='file' /></td>
+            </tr>
+            <tr><td /><td><input type='submit' value='Upload' /></td></tr>
+          </table>
+        </form>
       </div>
     )
   }
