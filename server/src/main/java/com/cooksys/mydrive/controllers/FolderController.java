@@ -1,6 +1,7 @@
 package com.cooksys.mydrive.controllers;
 
-import com.cooksys.mydrive.entity.Folder;
+import com.cooksys.mydrive.dto.FileFolderDto;
+import com.cooksys.mydrive.dto.FolderChildrenDto;
 import com.cooksys.mydrive.services.FileService;
 import com.cooksys.mydrive.services.FolderService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,33 +22,12 @@ public class FolderController {
     }
 
     @GetMapping
-    public Folder[] get() {
-        return folderService.get();
+    public FileFolderDto get() {
+        return new FileFolderDto("/", fileService.get(), folderService.get());
     }
 
     @GetMapping("{path}")
-    public String get(@PathVariable(value = "path") String path) {
-        return path;
+    public FolderChildrenDto get(@PathVariable(value = "path") String[] path) {
+        return folderService.get(path);
     }
-
-	/* POST /folders/{path}
-    @PostMapping("/{path}")
-    public Folder createNewFolder (@PathVariable(path="folderPath") String folderPath) {
-        return folderService.createNewFolder(folderPath);
-    }
-	*/
-
-    /*
-    @PatchMapping("/{path}/trash")
-    public Folder trashFolder (@PathVariable(path="folderPath") String folderPath) {
-        return folderService.trashSelectedFolder(folderPath);
-    }
-    */
-
-    /*
-    @DeleteMapping("/{path}")
-    public Folder deleteSelectedFolderFromTrash (@PathVariable(path="folderPath") String folderPath) {
-        return folderServices.deleteSelectedFolderFromTrash(folderPath);
-    }
-    */
 }

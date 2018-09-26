@@ -1,10 +1,8 @@
 package com.cooksys.mydrive.controllers;
 
+import com.cooksys.mydrive.entity.File;
 import com.cooksys.mydrive.services.FileService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/files")
@@ -16,7 +14,14 @@ public class FileController {
     }
 
     @GetMapping("{path}")
-    public String get(@PathVariable(value = "path") String path) {
-        return path;
+    public File get(@PathVariable(value = "path") String[] path) {
+
+        return fileService.get(path);
+    }
+
+    @PostMapping("{path}")
+    public File get(@PathVariable(value = "path") String[] path, @RequestBody File file) {
+
+        return fileService.add(path, file);
     }
 }

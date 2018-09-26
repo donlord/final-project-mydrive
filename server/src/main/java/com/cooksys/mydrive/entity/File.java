@@ -29,12 +29,21 @@ public class File {
     public File() {
     }
 
-    public File(int id, @NotNull Folder parent, @NotNull String fileName, @NotNull byte[] rawData, @NotNull boolean isTrash) {
+    public File(int id, Folder parent, @NotNull String name, @NotNull byte[] rawData, @NotNull boolean isRoot, @NotNull boolean inTrash) {
         this.id = id;
         this.parent = parent;
         this.name = name;
         this.rawData = rawData;
+        this.isRoot = isRoot;
         this.inTrash = inTrash;
+    }
+
+    public boolean isRoot() {
+        return isRoot;
+    }
+
+    public void setRoot(boolean root) {
+        isRoot = root;
     }
 
     public int getId() {
