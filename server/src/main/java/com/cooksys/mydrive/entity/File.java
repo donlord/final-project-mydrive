@@ -24,7 +24,7 @@ public class File {
     private boolean isRoot;
 
     @NotNull
-    private boolean inTrash;
+    private boolean inTrash = false;
 
     public File() {
     }

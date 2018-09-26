@@ -3,6 +3,7 @@ package com.cooksys.mydrive.controllers;
 import com.cooksys.mydrive.entity.File;
 import com.cooksys.mydrive.services.FileService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping(value = "/files")
@@ -15,13 +16,18 @@ public class FileController {
 
     @GetMapping("{path}")
     public File get(@PathVariable(value = "path") String[] path) {
-
         return fileService.get(path);
     }
 
     @PostMapping("{path}")
-    public File get(@PathVariable(value = "path") String[] path, @RequestBody File file) {
-
-        return fileService.add(path, file);
+    public String uploadFile(@PathVariable(value = "path") String[] path, @RequestBody MultipartFile file) {
+        fileService.add(path, file);
+        return "it done worked... I thank";
     }
+
+//    @PostMapping("{path}")
+//    public File get(@PathVariable(value = "path") String[] path, @RequestBody File file) {
+//
+//        return fileService.add(path, file);
+//    }
 }
