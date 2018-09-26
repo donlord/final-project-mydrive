@@ -22,7 +22,7 @@ public class FileController {
     @PostMapping("{path}")
     public String uploadFile(@PathVariable(value = "path") String[] path, @RequestBody MultipartFile file) {
         fileService.add(path, file);
-        return "it done worked... I thank";
+        return "this is a placeholder, to keep things professional!";
     }
 
 //    @PostMapping("{path}")
